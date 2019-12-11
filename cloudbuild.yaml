@@ -1,4 +1,7 @@
 steps:
+- name: 'mirror.gcr.io/library/golang'
+  args: ['go', 'version']
+  
 - id: "Compilando"
   name: 'gcr.io/cloud-builders/go'
   args: ['go', 'build', 'soma.go']
