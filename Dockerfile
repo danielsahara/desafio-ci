@@ -3,6 +3,6 @@ RUN mkdir /app
 
 WORKDIR /app
 
-COPY soma /app
+COPY ./src/soma /app
 
 CMD ["/app/soma"]
