@@ -1,0 +1,8 @@
+steps:
+- id: "Compilando"
+  name: 'gcr.io/cloud-builders/go'
+  args: ['go', 'build', 'soma.go']
+
+- id: "rodando testes unitarios"
+  name: 'gcr.io/cloud-builders/go'
+  args: ['go', 'test']
