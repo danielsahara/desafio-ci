@@ -6,3 +6,21 @@ steps:
 - id: "rodando testes unitarios"
   name: 'gcr.io/cloud-builders/go'
   args: ['go', 'test']
+
+- name: 'gcr.io/cloud-builders/docker'
+  args:
+  - 'build'
+  - '--build-arg'
+  - 'version=1.0.0'
+  - '-t'
+  - 'gcr.io/$PROJECT_ID/desafio-ci:latest'
+  - '-t'
+  - 'gcr.io/$PROJECT_ID/desafio-ci:1.0.0'
+  - '.'
+- name: 'gcr.io/$PROJECT_ID/desafio-ci'
+  args: ['version']
+
+images:
+- 'gcr.io/$PROJECT_ID/desafio-ci:latest'
+- 'gcr.io/$PROJECT_ID/desafio-ci:1.0.0'
+# tags: ['cloud-builders-community']
