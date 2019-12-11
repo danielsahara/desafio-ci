@@ -1,14 +1,18 @@
 steps:
-- name: 'mirror.gcr.io/library/golang'
-  args: ['go', 'version']
-  
+- id: go_version
+  name: "gcr.io/cloud-builders/go"
+  args: ["version"]
+  env: ["GOPATH=."]
+
 - id: "Compilando"
   name: 'gcr.io/cloud-builders/go'
   args: ['go', 'build', 'soma.go']
+  env: ["GOPATH=."]
 
 - id: "rodando testes unitarios"
   name: 'gcr.io/cloud-builders/go'
   args: ['go', 'test']
+  env: ["GOPATH=."]
 
 - name: 'gcr.io/cloud-builders/docker'
   args:
