@@ -5,4 +5,4 @@ WORKDIR /app
 
 COPY ./src/soma /app
 
-CMD ["/app/soma"]
+CMD ["/app/soma"] 
